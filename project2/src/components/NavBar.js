@@ -7,9 +7,9 @@ export class NavBar extends Component {
   render() {
     return (
         <div>
-            <nav className="navbar navbar-expand-lg navbar-light bg-light">
+            <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div className="container-fluid">
-                    <a className="navbar-brand" href="/">
+                    <a className="navbar-brand" style={{color: "white"}} href="/">
                     NewsMonkey
                     </a>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
