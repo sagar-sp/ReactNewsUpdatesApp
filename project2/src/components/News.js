@@ -15,13 +15,18 @@ export class News extends Component {
         pageSize : PropTypes.number,
         category : PropTypes.string
     }
-    constructor(){
-        super();    
+    capitalizeFirstLetter = (string) => {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+
+    constructor(props){
+        super(props);    
         this.state = {
             articles : [],
             loading : false,
             page : 1,
         }
+        document.title = `${this.capitalizeFirstLetter(this.props.category)} - NewsMonkey`;
     }
     async updateNews(pageNo){
         let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=a8094ea426a04abc9bc2b9fdf40e1351&page=${this.state.page}&pageSize=${this.props.pageSize}`;
@@ -52,7 +57,7 @@ export class News extends Component {
     render() {
         return (
             <div className="container my-3">
-                <h1 className="headline text-center">News Monkey - Top HeadLine</h1>
+                <h1 className="headline text-center">News Monkey - Top {this.capitalizeFirstLetter(this.props.category)}   HeadLine</h1>
                 {this.state.loading && <Spinner/>}
                 <div className="row">
                     {!this.state.loading && this.state.articles.map((element)=>{
