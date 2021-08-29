@@ -30,7 +30,7 @@ export class NewsItem extends Component {
                 ? description.slice(0, 88) + "..."
                 : description}
             </p>
-            <p class="card-text">
+            <p className="card-text">
               <small className="text-muted">
                 By {!author ? "unknown" : author} on{" "}
                 {new Date(date).toGMTString()}
